@@ -30,7 +30,7 @@
             <h3 class="card-title">Ảnh sản phẩm</h3>
 
             <div class="card-tools">
-                <button type="button" class="btn btn-danger"  title="Collap">
+                <button type="button" class="btn btn-danger"  title="Collapse">
                   Xóa hết
                 </button>
                 @*<button type="button" class="btn btn-success"  title="Remove">
@@ -72,7 +72,7 @@
         $.ajax({
             url: '/admin/productimage/AddImage',
             type: 'POST',
-            data: { productId: id,  url:url },
+            data: { productId: id, url: url },
             success: function (rs) {
                 if (rs.Success) {
                     window.location.reload();
@@ -80,23 +80,23 @@
             }
         });
     }
-    $(document).ready(function () {
-        $('body').on('click', '.btnDelete', function () {
-            var id = $(this).data('id'); 
-            var conf = confirm('Bạn có muốn xóa ảnh này không');
-            if (conf === true) {
-                $.ajax({
-                    url: '/admin/productimage/delete',
-                    type: 'POST',
-                    data: { id: id },
-                    success: function (rs) {
-                        if (rs.success) {
-                            window.location.reload();
-                        }
-                    }
-                });
-            }
-        });
-    });
+    //$(document).ready(function () {
+    //    $('body').on('click', '.btnDelete', function () {
+    //        var id = $(this).data('id'); 
+    //        var conf = confirm('Bạn có muốn xóa ảnh này không');
+    //        if (conf === true) {
+    //            $.ajax({
+    //                url: '/admin/productimage/delete',
+    //                type: 'POST',
+    //                data: { id: id },
+    //                success: function (rs) {
+    //                    if (rs.success) {
+    //                        window.location.reload();
+    //                    }
+    //                }
+    //            });
+    //        }
+    //    });
+    //});
 </script>
 
