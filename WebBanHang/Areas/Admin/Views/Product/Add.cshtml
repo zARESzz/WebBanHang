@@ -98,21 +98,23 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Số lượng</label>
-                                                @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @placeholder = "Số lượng" })
+                                                @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @Value = "1" })
                                                 @Html.ValidationMessageFor(x => x.Quantity, null, new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-4">
-                                            <div class="form-group">
+                                            <div class="form-group"> @*Lay du lieu format tu form demoPrice day vao Price*@
                                                 <label for="exampleInputEmail1">Giá</label>
-                                                @Html.TextBoxFor(x => x.Price, new { @class = "form-control", @placeholder = "Giá" })
+                                                <input type="text" name="demoPrice" id="demoPrice" value="0" class="form-control auto" data-a-dec="." data-a-sep=",">
+                                                @Html.HiddenFor(x => x.Price, new { @class = "", @placeholder = "Giá" })
                                                 @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Giá khuyến mại</label>
-                                                @Html.TextBoxFor(x => x.PriceSale, new { @class = "form-control", @placeholder = "Giá khuyến mại" })
+                                                <input type="text" name="demoPriceSale" id="demoPriceSale" value="0" class="form-control auto" data-a-dec="." data-a-sep=",">
+                                                @Html.HiddenFor(x => x.PriceSale, new { @class = "", @placeholder = "Giá" })
                                                 @Html.ValidationMessageFor(x => x.PriceSale, null, new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -235,12 +237,23 @@
         <!-- /.card-footer-->
     </div>
     <!-- /.card -->
-
+   
 </section>
 <!-- /.content -->
 @section scripts{
     <script>
         $(document).ready(function () {
+            $('.auto').autoNumeric('init');
+            $('#demoPrice').bind('blur focusout keypress keyup', function () {
+                var demoGet = $('#demoPrice').autoNumeric('get');
+                $('#Price').val(demoGet);
+                $('#Price').autoNumeric('set', demoGet);
+            });
+            $('#demoPriceSale').bind('blur focusout keypress keyup', function () {
+                var demoGet = $('#demoPriceSale').autoNumeric('get');
+                $('#PriceSale').val(demoGet);
+                $('#PriceSale').autoNumeric('set', demoGet);
+            });
             CKEDITOR.replace('txtDetail', {
                 customConfig: '/content/ckeditor/config.js',
                 extraAllowedContent: 'span',
