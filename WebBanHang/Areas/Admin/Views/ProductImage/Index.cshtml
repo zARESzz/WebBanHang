@@ -60,13 +60,12 @@
     </div>
 </section>
 <script>
-    debugger;
     function BrowseServer(field) {
-        var finder = new CKFinder();
-        finder.selectActionFunction = function (fileUrl) {
-            AddImage(@ViewBag.productId, fileUrl);           
-        };
-        finder.popup();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                AddImage(@ViewBag.productId, fileUrl);
+            };
+            finder.popup();
     }
     function AddImage(id, url) {
         $.ajax({
@@ -80,23 +79,24 @@
             }
         });
     }
-    //$(document).ready(function () {
-    //    $('body').on('click', '.btnDelete', function () {
-    //        var id = $(this).data('id'); 
-    //        var conf = confirm('Bạn có muốn xóa ảnh này không');
-    //        if (conf === true) {
-    //            $.ajax({
-    //                url: '/admin/productimage/delete',
-    //                type: 'POST',
-    //                data: { id: id },
-    //                success: function (rs) {
-    //                    if (rs.success) {
-    //                        window.location.reload();
-    //                    }
-    //                }
-    //            });
-    //        }
-    //    });
-    //});
+
+    $(document).ready(function () {
+        $('body').on('click', '.btnDelete', function () {
+            var id = $(this).data('id');
+            var conf = confirm('Bạn có muốn xóa ảnh này không');
+            if (conf === true) {
+                $.ajax({
+                    url: '/admin/productimage/delete',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (rs) {
+                        if (rs.success) {
+                            window.location.reload();
+                        }
+                    }
+                });
+            }
+        });
+    });
 </script>
 

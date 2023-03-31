@@ -3742,7 +3742,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\ProductImages\" />
     <Folder Include="Content\ckfinder\ckfinder\userfiles\" />
   </ItemGroup>
   <ItemGroup>
