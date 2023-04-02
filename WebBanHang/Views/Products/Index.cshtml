@@ -1,0 +1,112 @@
+﻿@model IEnumerable<WebBanHang.Models.EF.Product>
+
+@if(Model != null && Model.Any())
+            {
+                <section class="section section-lg bg-default">
+                    <div class="container">
+                        <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Món ăn nổi bật</span></h3>
+                        <div class="row row-lg row-30">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-sm-6 col-lg-4 col-xl-3">
+                                    <!-- Product-->
+                                    <article class="product wow fadeInLeft" data-wow-delay=".15s">
+                                        <div class="product-figure">
+                                            <img src="@item.Image" alt="" width="161" height="162" />
+                                        </div>
+                                        <div class="product-rating">
+                                            <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+                                        </div>
+                                        <h6 class="product-title">Lẩu âu</h6>
+                                        <div class="product-price-wrap">
+                                            <div class="product-price">@item.Price</div>
+                                        </div>
+                                        <div class="product-button">
+                                            <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
+                                            <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                            }
+                            <!--<div class="col-sm-6 col-lg-4 col-xl-3">-->
+                                <!-- Product-->
+                                <!--<article class="product wow fadeInLeft" data-wow-delay=".15s">
+                                    <div class="product-figure">
+                                        <img src="~/Content/Images/lauaua.jpeg" alt="" width="161" height="162" />
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+                                    </div>
+                                    <h6 class="product-title">Lẩu âu</h6>
+                                    <div class="product-price-wrap">
+                                        <div class="product-price">200.000</div>
+                                    </div>
+                                    <div class="product-button">
+                                        <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
+                                        <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">-->
+                                <!-- Product-->
+                                <!--<article class="product wow fadeInLeft" data-wow-delay=".1s">
+                                    <div class="product-figure">
+                                        <img src="~/Content/Images/ganuonggg.jpeg" alt="" width="161" height="162" />
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span>
+                                    </div>
+                                    <h6 class="product-title">Gân nướng</h6>
+                                    <div class="product-price-wrap">
+                                        <div class="product-price">45.000</div>
+                                    </div>
+                                    <div class="product-button">
+                                        <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
+                                        <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                    </div><span class="product-badge product-badge-new">Mới</span>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">-->
+                                <!-- Product-->
+                                <!--<article class="product wow fadeInLeft" data-wow-delay=".05s">
+                                    <div class="product-figure">
+                                        <img src="~/Content/Images/gakfc.jpeg" alt="" width="161" height="162" />
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+                                    </div>
+                                    <h6 class="product-title">Gà rán</h6>
+                                    <div class="product-price-wrap">
+                                        <div class="product-price">74.000</div>
+                                    </div>
+                                    <div class="product-button">
+                                        <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
+                                        <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">-->
+                                <!-- Product-->
+                                <!--<article class="product wow fadeInLeft">
+                                    <div class="product-figure">
+                                        <img src="~/Content/Images/nuocdua.jpeg" alt="" width="161" height="162" />
+                                    </div>
+                                    <div class="product-rating">
+                                        <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span>
+                                    </div>
+                                    <h6 class="product-title">Nước dừa</h6>
+                                    <div class="product-price-wrap">
+                                        <div class="product-price product-price-old">35.000</div>
+                                        <div class="product-price">20.000</div>
+                                    </div>
+                                    <div class="product-button">
+                                        <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
+                                        <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                    </div><span class="product-badge product-badge-sale">Giảm giá</span>
+                                </article>
+                            </div>-->
+                        </div>
+                    </div>
+                </section>
+            }

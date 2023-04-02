@@ -192,6 +192,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3185,6 +3187,7 @@
     <Content Include="Content\Images\cafe.jpeg" />
     <Content Include="Content\Images\canhganuong.jpeg" />
     <Content Include="Content\Images\caphee.jpeg" />
+    <Content Include="Content\Images\cherries-g778b7d36a_1920.jpg" />
     <Content Include="Content\Images\chângnuong.jpg" />
     <Content Include="Content\Images\comga.jpg" />
     <Content Include="Content\Images\comgaa.jpg" />
@@ -3209,6 +3212,8 @@
     <Content Include="Content\Images\ganuong.jpg" />
     <Content Include="Content\Images\ganuonggg.jpeg" />
     <Content Include="Content\Images\ganuonglu.jpg" />
+    <Content Include="Content\Images\hamberger1.jpeg" />
+    <Content Include="Content\Images\hamberger2.jpg" />
     <Content Include="Content\Images\hamburger.jpg" />
     <Content Include="Content\Images\haunuong.jpeg" />
     <Content Include="Content\Images\hauuu.jpeg" />
@@ -3229,9 +3234,11 @@
     <Content Include="Content\Images\lauthairama.jpg" />
     <Content Include="Content\Images\lauthaison.jpg" />
     <Content Include="Content\Images\lauuuu.jpg" />
+    <Content Include="Content\Images\logo-1.jpg" />
     <Content Include="Content\Images\mytron.jpg" />
     <Content Include="Content\Images\mytronnn.jpg" />
     <Content Include="Content\Images\nemnuong.jpg" />
+    <Content Include="Content\Images\nguyenlieu.jpeg" />
     <Content Include="Content\Images\nuocdua.jpeg" />
     <Content Include="Content\Images\nuocdua2.jpeg" />
     <Content Include="Content\Images\nuocdua3.jpeg" />
@@ -3738,6 +3745,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Menu\_MenuTop.cshtml" />
+    <Content Include="Views\Menu\_MenuProductCategory.cshtml" />
+    <Content Include="Views\Menu\_Menuuarrival.cshtml" />
+    <Content Include="Views\Products\Partial_ItemsByCateId.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\GetCategory.cshtml" />
+    <Content Include="Views\Menu\Menuarrivals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

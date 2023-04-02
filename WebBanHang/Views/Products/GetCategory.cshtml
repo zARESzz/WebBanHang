@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebBanHang.Models.EF.ProductCategory>
+
+
+<ul>
+    @foreach(var item in Model)
+                {
+                    <li>@Html.ActionLink(item.Title, "GetProductByCategory/" + item.Id, "Products")</li>
+                }
+</ul>
