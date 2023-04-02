@@ -3,7 +3,7 @@
             {
                 <section class="section section-lg bg-default">
                     <div class="container">
-                        <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Món ăn nổi bật</span></h3>
+                        <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Món ăn</span></h3>
                         <div class="row row-lg row-30">
                             @foreach (var item in Model)
                             {
@@ -22,7 +22,7 @@
                                         <div class="product-rating">
                                             <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
                                         </div>
-                                        <h6 class="product-title">Lẩu âu</h6>
+                                        <h6 class="product-title">@item.Title</h6>
                                         <div class="product-price-wrap">
                                             <div class="product-price">@item.Price</div>
                                         </div>

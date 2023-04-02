@@ -23,13 +23,13 @@ namespace WebBanHang.Controllers
         public ActionResult GetCategory() 
         { 
             var context = new ApplicationDbContext();
-            var listCategory = context.Categories.ToList(); 
+            var listCategory = context.ProductCategories.ToList(); 
             return PartialView(listCategory);
         }
         public ActionResult GetProductByCategory(int id)
         {
             var context = new ApplicationDbContext();
-            return View("Index", context.Products.Where(p => p.ProductCategoryID == id).ToList());
+            return View("Partial_ItemsByCateId", context.Products.Where(p => p.ProductCategoryID == id).ToList());
         }
     }
 }
