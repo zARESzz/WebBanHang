@@ -1,6 +1,6 @@
-﻿@model IEnumerable<WebBanHang.Models.EF.Product>
+﻿<!--@model IEnumerable<WebBanHang.Models.EF.Product>
 @if(Model != null && Model.Any())
-            {
+{
                 <section class="section section-lg bg-default">
                     <div class="container">
                         <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Món ăn</span></h3>
@@ -13,9 +13,9 @@
                                 {
                                     strImge = img.Image;
                                 }
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="col-sm-6 col-lg-4 col-xl-3">-->
                                     <!-- Product-->
-                                    <article class="product wow fadeInLeft" data-wow-delay=".15s">
+                                    <!--<article class="product wow fadeInLeft" data-wow-delay=".15s">
                                         <div class="product-figure">
                                             <img src="@item.Image" alt="" width="161" height="162" />
                                         </div>
@@ -27,13 +27,13 @@
                                             <div class="product-price">@item.Price</div>
                                         </div>
                                         <div class="product-button">
-                                            <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
+                                            <div class="button-wrap button button-xs button-primary button-winona"><a class="btnAddToCart" data-id="@item.Id" href="#">Add to cart</a></div>
                                             <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
                                         </div>
                                     </article>
                                 </div>
 
-                            }
+                            }-->
                             <!--<div class="col-sm-6 col-lg-4 col-xl-3">-->
                                 <!-- Product-->
                                 <!--<article class="product wow fadeInLeft" data-wow-delay=".15s">
@@ -111,7 +111,7 @@
                                     </div><span class="product-badge product-badge-sale">Giảm giá</span>
                                 </article>
                             </div>-->
-                        </div>
+                        <!--</div>
                     </div>
                 </section>
-            }
+    }-->

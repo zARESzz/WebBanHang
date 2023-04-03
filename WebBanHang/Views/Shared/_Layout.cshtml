@@ -1,27 +1,22 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="wide wow-animation" lang="en">
 <head>
     <title>Home</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/Content/Funnyfood.ico" type="image/x-icon">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
-
-
-
     <link href="~/Content/assets/css/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/assets/css/fonts.css" rel="stylesheet" />
     <link href="~/Content/assets/css/style.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-3.6.4.js"></script>
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Content/assets/js/html5shiv.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
 
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
 </head>
 <body>
     <div class="preloader">
@@ -57,217 +52,260 @@
             </div>
         </div>
     </div>
-    <!-- Page Header-->
-    <header class="section page-header">
-        <!-- RD Navbar-->
-        <div class="rd-navbar-wrap">
-            <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="56px" data-xl-stick-up-offset="56px" data-xxl-stick-up-offset="56px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
-                <div class="rd-navbar-inner-outer">
-                    <div class="rd-navbar-inner">
-                        <!-- RD Navbar Panel-->
-                        <div class="rd-navbar-panel">
-                            <!-- RD Navbar Toggle-->
-                            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-                            <!-- RD Navbar Brand-->
-                            <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="~/Content/Images/logo-1.jpg" alt="" width="100" height="33" /></a></div>
-                        </div>
-                        <div class="rd-navbar-right rd-navbar-nav-wrap">
-                            <div class="rd-navbar-aside">
-                                <ul class="rd-navbar-contacts-2">
-                                    <li>
-                                        <div class="unit unit-spacing-xs">
-                                            <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
-                                            <div class="unit-body"><a class="phone" href="tel:#">+84 359-857-618</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="unit unit-spacing-xs">
-                                            <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
-                                            <div class="unit-body"><a class="address" href="#">4/59 Đường 100A Phường Tân Phú Quận 9</a></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                @*<ul class="list-share-2">
-                                    <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                                </ul>*@
-                            </div>
-                            <div class="rd-navbar-main">
-                                <!-- RD Navbar Nav-->
-                                @Html.Action("MenuTop", "Menu");
-                                @*<ul class="rd-navbar-nav">
-                                    <li class="rd-nav-item active">
-                                        <a class="rd-nav-link" href="index.html">Trang chủ</a>
-                                    </li>
-                                    <li class="rd-nav-item">
-                                        <a class="rd-nav-link" href="about-us.html">About us</a>
-                                    </li>
-                                    <li class="rd-nav-item">
-                                        <a class="rd-nav-link" href="contacts.html">Contacts</a>
-                                    </li>
-                                    <li class="rd-nav-item">
-                                        <a class="rd-nav-link" href="contacts.html">Đăng nhập</a>
-                                    </li>
-                                </ul>
-                                @Html.Partial("_LoginPartial")
+    <div class="page">
 
+        <!-- Page Header-->
+        <header class="section page-header">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap">
+                <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="56px" data-xl-stick-up-offset="56px" data-xxl-stick-up-offset="56px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+                    <div class="rd-navbar-inner-outer">
+                        <div class="rd-navbar-inner">
+                            <!-- RD Navbar Panel-->
+                            <div class="rd-navbar-panel">
+                                <!-- RD Navbar Toggle-->
+                                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                                <!-- RD Navbar Brand-->
+                                <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="~/Content/Funnyfood.png" alt="" width="198" height="66" /></a></div>
                             </div>
-                        </div>
-                        <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-open rd-navbar-fixed-element-1" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
-                            <div class="project-hamburger">
-                                <span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span>
-                            </div>
-                        </div>
-                        <div class="rd-navbar-project">
-                            <div class="rd-navbar-project-header">
-                                <h5 class="rd-navbar-project-title">Phòng trưng bày</h5>
-                                <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-close" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
-                                    <div class="project-close"><span></span><span></span></div>
+                            <div class="rd-navbar-right rd-navbar-nav-wrap">
+                                <div class="rd-navbar-aside">
+                                    <ul class="rd-navbar-contacts-2">
+                                        <li>
+                                            <div class="unit unit-spacing-xs">
+                                                <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                                                <div class="unit-body"><a class="phone" href="tel:#">+84 789-846-9999</a></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="unit unit-spacing-xs">
+                                                <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                                                <div class="unit-body"><a class="address" href="#">Hutech Cơ Sở E</a></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-share-2">
+                                        <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                                        <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                                        <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                                        <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="rd-navbar-main">
+                                    <!-- RD Navbar Nav-->
+                                    <ul class="rd-navbar-nav">
+                                        <li class="rd-nav-item active">
+                                            <a class="rd-nav-link" href="index.html">Home</a>
+                                        </li>
+                                        <li class="rd-nav-item">
+                                            <a class="rd-nav-link" href="about-us.html">About us</a>
+                                        </li>
+                                        <li class="rd-nav-item">
+                                            <a class="rd-nav-link" href="typography.html">Typography</a>
+                                        </li>
+                                        <li class="rd-nav-item">
+                                            <a class="rd-nav-link" href="contacts.html">Contacts</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="rd-navbar-project-content rd-navbar-content">
-                                <div>
-                                    <div class="row gutters-20" data-lightgallery="group">
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative">
-                                                <a href="~/Content/Images/lauthairama.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure">
-                                                        <img src="~/Content/Images/lauthairama.jpg" alt="" width="195" height="164" />
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
-                                                </a>
-                                            </article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative">
-                                                <a href="~/Content/Images/hamburger.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure">
-                                                        <img src="~/Content/Images/hamburger.jpg" alt="" width="195" height="164" />
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
-                                                </a>
-                                            </article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative">
-                                                <a href="~/Content/Images/nuocep.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure">
-                                                        <img src="~/Content/Images/nuocep.jpg" alt="" width="195" height="164" />
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
-                                                </a>
-                                            </article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative">
-                                                <a href="~/Content/Images/ganuonglu.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure">
-                                                        <img src="~/Content/Images/ganuonglu.jpg" alt="" width="195" height="164" />
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
-                                                </a>
-                                            </article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative">
-                                                <a href="~/Content/Images/lauthai.jpeg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure">
-                                                        <img src="~/Content/Images/lauthai.jpeg" alt="" width="195" height="164" />
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
-                                                </a>
-                                            </article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative">
-                                                <a href="~/Content/Images/nuocep2.jpeg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure">
-                                                        <img src="~/Content/Images/nuocep2.jpeg" alt="" width="195" height="164" />
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
-                                                </a>
-                                            </article>
+                            <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-open rd-navbar-fixed-element-1" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
+                                <div class="project-hamburger">
+                                    <span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span>
+                                </div>
+                            </div>
+                            <div class="rd-navbar-project">
+                                <div class="rd-navbar-project-header">
+
+                                    <h5 class="rd-navbar-project-title">Gallery</h5>
+                                    <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-close" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
+                                        <div class="project-close"><span></span><span></span></div>
+                                    </div>
+                                </div>
+                                <div class="rd-navbar-project-content rd-navbar-content">
+                                    <div>
+                                        <div class="row gutters-20" data-lightgallery="group">
+                                            <div class="col-6">
+                                                Thumbnail Creative
+                                                <article class="thumbnail thumbnail-creative">
+                                                    <a href="~/Content/assets/images/project-1-1200x800-original.jpg" data-lightgallery="item">
+                                                        <div class="thumbnail-creative-figure">
+                                                            <img src="~/Content/assets/images/project-1-195x164.jpg" alt="" width="195" height="164" />
+                                                        </div>
+                                                        <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
+                                                    </a>
+                                                </article>
+                                            </div>
+                                            <div class="col-6">
+                                                Thumbnail Creative
+                                                <article class="thumbnail thumbnail-creative">
+                                                    <a href="~/Content/assets/images/project-2-1200x800-original.jpg" data-lightgallery="item">
+                                                        <div class="thumbnail-creative-figure">
+                                                            <img src="~/Content/assets/images/project-2-195x164.jpg" alt="" width="195" height="164" />
+                                                        </div>
+                                                        <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
+                                                    </a>
+                                                </article>
+                                            </div>
+                                            <div class="col-6">
+                                                Thumbnail Creative
+                                                <article class="thumbnail thumbnail-creative">
+                                                    <a href="~/Content/assets/images/project-3-1200x800-original.jpg" data-lightgallery="item">
+                                                        <div class="thumbnail-creative-figure">
+                                                            <img src="~/Content/assets/images/project-3-195x164.jpg" alt="" width="195" height="164" />
+                                                        </div>
+                                                        <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
+                                                    </a>
+                                                </article>
+                                            </div>
+                                            <div class="col-6">
+                                                Thumbnail Creative
+                                                <article class="thumbnail thumbnail-creative">
+                                                    <a href="~/Content/assets/images/project-4-1200x800-original.jpg" data-lightgallery="item">
+                                                        <div class="thumbnail-creative-figure">
+                                                            <img src="~/Content/assets/images/project-4-195x164.jpg" alt="" width="195" height="164" />
+                                                        </div>
+                                                        <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
+                                                    </a>
+                                                </article>
+                                            </div>
+                                            <div class="col-6">
+                                                Thumbnail Creative
+                                                <article class="thumbnail thumbnail-creative">
+                                                    <a href="~/Content/assets/images/project-5-1200x800-original.jpg" data-lightgallery="item">
+                                                        <div class="thumbnail-creative-figure">
+                                                            <img src="~/Content/assets/images/project-5-195x164.jpg" alt="" width="195" height="164" />
+                                                        </div>
+                                                        <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
+                                                    </a>
+                                                </article>
+                                            </div>
+                                            <div class="col-6">
+                                                Thumbnail Creative
+                                                <article class="thumbnail thumbnail-creative">
+                                                    <a href="~/Content/assets/images/project-6-1200x800-original.jpg" data-lightgallery="item">
+                                                        <div class="thumbnail-creative-figure">
+                                                            <img src="~/Content/assets/images/project-6-195x164.jpg" alt="" width="195" height="164" />
+                                                        </div>
+                                                        <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div>
+                                                    </a>
+                                                </article>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </nav>
+            </div>
+        </header>
+    
+        @RenderBody()
+
+        <!-- Bottom Banner--><!--<a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(~/Content/assets/images/banner/background-03-1920x310.jpg); background-image: -webkit-image-set( url(~/Content/assets/images/banner/background-03-1920x310.jpg) 1x, url(~/Content/assets/images/banner/background-03-3840x620.jpg) 2x )"><img src="~/Content/assets/images/banner/foreground-03-1600x310.png" srcset="images/banner/foreground-03-1600x310.png 1x, images/banner/foreground-03-3200x620.png 2x" alt="" width="1600" height="310"></a>-->
+        <!-- Page Footer-->
+        <footer class="section footer-modern context-dark footer-modern-2">
+            <div class="footer-modern-line">
+                <div class="container">
+                    <div class="row row-50">
+                        <div class="col-md-6 col-lg-4">
+                            <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">What We Offer</span></h5>
+                            <ul class="footer-modern-list d-inline-block d-sm-block wow fadeInUp">
+                                <li><a href="#">Pizzas</a></li>
+                                <li><a href="#">Burgers</a></li>
+                                <li><a href="#">Salads</a></li>
+                                <li><a href="#">Drinks</a></li>
+                                <li><a href="#">Seafood</a></li>
+                                <li><a href="#">Drinks</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Information</span></h5>
+                            <ul class="footer-modern-list d-inline-block d-sm-block wow fadeInUp">
+                                <li><a href="about-us.html">About us</a></li>
+                                <li><a href="#">Latest News</a></li>
+                                <li><a href="#">Our Menu</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="contacts.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-xl-5">
+                            <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Newsletter</span></h5>
+                            <p class="wow fadeInRight">Sign up today for the latest news and updates.</p>
+                            <!-- RD Mailform-->
+                            <form class="rd-form rd-mailform rd-form-inline rd-form-inline-sm oh-desktop" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+                                <div class="form-wrap wow slideInUp">
+                                    <input class="form-input" id="subscribe-form-2-email" type="email" name="email" />
+                                    <label class="form-label" for="subscribe-form-2-email">Enter your E-mail</label>
+                                </div>
+                                <div class="form-button form-button-2 wow slideInRight">
+                                    <button class="button button-sm button-icon-3 button-primary button-winona" type="submit"><span class="d-none d-xl-inline-block">Subscribe</span><span class="icon mdi mdi-telegram d-xl-none"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </nav>
-        </div>
-        <section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="true" data-autoplay="5000" data-simulate-touch="false" data-slide-effect="fade">
-            <div class="swiper-wrapper text-sm-left">
-                <div class="swiper-slide context-dark" data-slide-bg="/Content/Images/hamberger2.jpg">
-                    <div class="swiper-slide-caption section-md">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-9 col-md-8 col-lg-7 col-xl-7 offset-lg-1 offset-xxl-0">
-                                    <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="0">Hamburger Hoàn Hảo</span></h1>
-                                    <p class="big swiper-text" data-caption-animate="fadeInLeft" data-caption-delay="300">Trải nghiệm hương vị của một chiếc bánh Hamberger hoàn hảo tại Hamberger, một trong những nhà hàng tốt nhất!</p><a class="button button-lg button-primary button-winona button-shadow-2" href="#" data-caption-animate="fadeInUp" data-caption-delay="300">Xem thực đơn của chúng tôi</a>
+            </div>
+            <div class="footer-modern-line-2">
+                <div class="container">
+                    <div class="row row-30 align-items-center">
+                        <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
+                            <div class="row row-30 align-items-center text-lg-center">
+                                <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="~/Content/assets/images/logo-inverse-198x66.png" alt="" width="198" height="66" /></a></div>
+                                <div class="col-md-5 col-xl-6">
+                                    <div class="iso-1"><span><img src="~/Content/assets/images/like-icon-58x25.png" alt="" width="58" height="25" /></span><span class="iso-1-big">9.4k</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-8 col-xl-8 oh-desktop">
+                            <div class="group-xmd group-sm-justify">
+                                <div class="footer-modern-contacts wow slideInUp">
+                                    <div class="unit unit-spacing-sm align-items-center">
+                                        <div class="unit-left"><span class="icon icon-24 mdi mdi-phone"></span></div>
+                                        <div class="unit-body"><a class="phone" href="tel:#">+1 718-999-3939</a></div>
+                                    </div>
+                                </div>
+                                <div class="footer-modern-contacts wow slideInDown">
+                                    <div class="unit unit-spacing-sm align-items-center">
+                                        <div class="unit-left"><span class="icon mdi mdi-email"></span></div>
+                                        <div class="unit-body"><a class="mail" href="mailto:#">info@demolink.org</a></div>
+                                    </div>
+                                </div>
+                                <div class="wow slideInRight">
+                                    <ul class="list-inline footer-social-list footer-social-list-2 footer-social-list-3">
+                                        <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                                        <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                                        <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                                        <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide context-dark" data-slide-bg="/Content/Images/cherries-g778b7d36a_1920.jpg">
-                    <div class="swiper-slide-caption section-md">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-8 col-lg-7 offset-lg-1 offset-xxl-0">
-                                    <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="0">Nguyên liệu chất lượng</span></h1>
-                                    <p class="big swiper-text" data-caption-animate="fadeInRight" data-caption-delay="300">Chúng tôi chỉ sử dụng những nguyên liệu tốt nhất để làm món những món ăn có một không hai cho khách hàng của mình.</p>
-                                    <div class="button-wrap oh"><a class="button button-lg button-primary button-winona button-shadow-2" href="#" data-caption-animate="slideInUp" data-caption-delay="0">Xem thực đơn của chúng tôi</a></div>
-                                </div>
-                            </div>
+            </div>
+            <div class="footer-modern-line-3">
+                <div class="container">
+                    <div class="row row-10 justify-content-between">
+                        <div class="col-md-6"><span>514 S. Magnolia St. Orlando, FL 32806</span></div>
+                        <div class="col-md-auto">
+                            <!-- Rights-->
+                            <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span></span><span>.&nbsp;</span><span>All Rights Reserved.</span><span> Design&nbsp;by&nbsp;<a href="https://www.templatemonster.com">TemplateMonster</a></span></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Swiper Pagination-->
-            <div class="swiper-pagination" data-bullet-custom="true"></div>
-            <!-- Swiper Navigation-->
-            <div class="swiper-button-prev">
-                <div class="preview">
-                    <div class="preview__img"></div>
-                </div>
-                <div class="swiper-button-arrow"></div>
-            </div>
-            <div class="swiper-button-next">
-                <div class="swiper-button-arrow"></div>
-                <div class="preview">
-                    <div class="preview__img"></div>
-                </div>
-            </div>
-        </section>
-        <div id="content-left" class="col-2 col-lg-2">
-            @*<h1>Chủ đề</h1>
-            <ul>
-                <li>@Html.ActionLink("Cuộc sống", "GetProductByCategory/11", "Products")</li>
-                <li>@Html.ActionLink("Lập trình", "GetProductByCategory/12", "Products")</li>
-                <li>@Html.ActionLink("Sức khỏe", "GetProductByCategory/13", "Products")</li>
-            </ul>*@
-            @Html.Action("GetCategory", "Products")
-        </div>
-
-    </header>
-    @RenderBody()
-    @*@Scripts.Render("~/bundles/jquery")*@
-    @*@Scripts.Render("~/bundles/bootstrap")*@
-
+        </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
     <script src="~/Content/assets/js/core.min.js"></script>
     <script src="~/Content/assets/js/script.js"></script>
-
     @RenderSection("scripts", required: false)
-    @Scripts.Render("~/Scripts/jquery.validate.min.js")
-    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+
+    <!-- coded by Himic-->
 </body>
 </html>
