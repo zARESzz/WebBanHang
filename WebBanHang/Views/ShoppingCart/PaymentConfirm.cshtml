@@ -3,4 +3,13 @@
     ViewBag.Title = "PaymentConfirm";
 }
 
-<h2>@ViewBag.Message</h2>
+@if (@ViewBag.Message != null)
+{
+    <h2>@ViewBag.Message</h2>
+
+}
+else
+{
+    <h2>Đặt đơn hàng thành công</h2>
+
+}
