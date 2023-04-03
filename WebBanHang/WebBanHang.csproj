@@ -224,7 +224,9 @@
     <Compile Include="Areas\Admin\Controllers\ProductImageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Common\SettingHelper.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -273,6 +275,10 @@
     <Compile Include="Migrations\202303241846254_UpdatePriceSale.designer.cs">
       <DependentUpon>202303241846254_UpdatePriceSale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304031704496_fix2.cs" />
+    <Compile Include="Migrations\202304031704496_fix2.designer.cs">
+      <DependentUpon>202304031704496_fix2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -302,6 +308,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\anh2.jpg" />
+    <Content Include="Content\assets\anh3.jpg" />
+    <Content Include="Content\assets\anh4.jpg" />
     <Content Include="Content\assets\css\bootstrap.css" />
     <Content Include="Content\assets\css\fonts.css" />
     <Content Include="Content\assets\css\style.css" />
@@ -311,6 +320,11 @@
     <Content Include="Content\assets\fonts\lg.svg" />
     <Content Include="Content\assets\fonts\Linearicons.svg" />
     <Content Include="Content\assets\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="Content\assets\gioithieu1.jpg" />
+    <Content Include="Content\assets\gioithieu3.jpg" />
+    <Content Include="Content\assets\gioithieu4.jpg" />
+    <Content Include="Content\assets\gioitieu2.jpg" />
+    <Content Include="Content\assets\images.jpg" />
     <Content Include="Content\assets\images\about-1-835x418.jpg" />
     <Content Include="Content\assets\images\ajax-loader.gif" />
     <Content Include="Content\assets\images\banner\background-03-1920x310.jpg" />
@@ -341,6 +355,10 @@
     <Content Include="Content\assets\images\gallery-7-1200x800-original.jpg" />
     <Content Include="Content\assets\images\gallery-7-311x289.jpg" />
     <Content Include="Content\assets\images\gallery-7-311x289h.jpg" />
+    <Content Include="Content\assets\images\gioithieu1.jpg" />
+    <Content Include="Content\assets\images\gioithieu3.jpg" />
+    <Content Include="Content\assets\images\gioithieu4.jpg" />
+    <Content Include="Content\assets\images\gioitieu2.jpg" />
     <Content Include="Content\assets\images\gmap_marker-2.png" />
     <Content Include="Content\assets\images\gmap_marker-2_active.png" />
     <Content Include="Content\assets\images\gmap_marker.png" />
@@ -399,6 +417,7 @@
     <Content Include="Content\assets\js\html5shiv.min.js" />
     <Content Include="Content\assets\js\pointer-events.min.js" />
     <Content Include="Content\assets\js\script.js" />
+    <Content Include="Content\assets\maxresdefault.jpg" />
     <Content Include="Content\assets\site\about-us.html" />
     <Content Include="Content\assets\site\contacts.html" />
     <Content Include="Content\assets\site\css\bootstrap.css" />
@@ -501,6 +520,7 @@
     <Content Include="Content\assets\site\js\script.js" />
     <Content Include="Content\assets\site\typography.html" />
     <Content Include="Content\assets\user.jpg" />
+    <Content Include="Content\assets\Vũ-Thị-Phương-Chinh-363%281%29.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -4117,6 +4137,9 @@
     <Content Include="Views\ShoppingCart\Partial_Item_ThanhToan.cshtml" />
     <Content Include="Views\Account\NotificationEmailConfim.cshtml" />
     <Content Include="Views\ShoppingCart\PaymentConfirm.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Add.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4157,6 +4180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303241846254_UpdatePriceSale.resx">
       <DependentUpon>202303241846254_UpdatePriceSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304031704496_fix2.resx">
+      <DependentUpon>202304031704496_fix2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
