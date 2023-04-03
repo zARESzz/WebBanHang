@@ -1,9 +1,20 @@
 ﻿@model IEnumerable<WebBanHang.Models.EF.ProductCategory>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/categories_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/styles/categories_responsive.css">
+</head>
+<div class="sidebar_section">
+    <div class="sidebar_title">
+        <h5>Chủ đề</h5>
+    </div>
+    <ul class="sidebar_categories">
+        @foreach (var item in Model)
+        {
+            <li>@Html.ActionLink(item.Title, "GetProductByCategory/" + item.Id, "Products")</li>
+        }
+    </ul>
+</div>
 
-<h1>Chủ đề</h1>
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>@Html.ActionLink(item.Title + "(" + item.Products.Count() + ")", "GetProductByCategory/" + item.Id, "Products")</li>
-    }
-</ul>
+@section scripts{
+    <script src="~/Content/assets/js/categories_custom.js"></script>
+}

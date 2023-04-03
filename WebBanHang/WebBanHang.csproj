@@ -277,7 +277,19 @@
     <Content Include="Content\assets\bat\ReCaptcha\RequestParameters.php" />
     <Content Include="Content\assets\bat\ReCaptcha\Response.php" />
     <Content Include="Content\assets\css\bootstrap.css" />
+    <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\bootstrap.min.js" />
+    <Content Include="Content\assets\css\categories_responsive.css" />
+    <Content Include="Content\assets\css\categories_styles.css" />
+    <Content Include="Content\assets\css\contact_responsive.css" />
+    <Content Include="Content\assets\css\contact_styles.css" />
     <Content Include="Content\assets\css\fonts.css" />
+    <Content Include="Content\assets\css\jquery-ui.css" />
+    <Content Include="Content\assets\css\main_styles.css" />
+    <Content Include="Content\assets\css\popper.js" />
+    <Content Include="Content\assets\css\responsive.css" />
+    <Content Include="Content\assets\css\single_responsive.css" />
+    <Content Include="Content\assets\css\single_styles.css" />
     <Content Include="Content\assets\css\style.css" />
     <Content Include="Content\assets\fonts\FernandoForero-Asfalto.svg" />
     <Content Include="Content\assets\fonts\fl-bigmug-line.svg" />
@@ -369,10 +381,15 @@
     <Content Include="Content\assets\images\wp-say-669x447.jpg" />
     <Content Include="Content\assets\images\youtube-play.png" />
     <Content Include="Content\assets\images\_blank.png" />
+    <Content Include="Content\assets\js\categories_custom.js" />
+    <Content Include="Content\assets\js\contact_custom.js" />
     <Content Include="Content\assets\js\core.min.js" />
+    <Content Include="Content\assets\js\custom.js" />
     <Content Include="Content\assets\js\html5shiv.min.js" />
+    <Content Include="Content\assets\js\jquery-3.2.1.min.js" />
     <Content Include="Content\assets\js\pointer-events.min.js" />
     <Content Include="Content\assets\js\script.js" />
+    <Content Include="Content\assets\js\single_custom.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -3749,9 +3766,12 @@
     <Content Include="Views\Menu\_MenuProductCategory.cshtml" />
     <Content Include="Views\Menu\_Menuuarrival.cshtml" />
     <Content Include="Views\Products\Partial_ItemsByCateId.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\GetCategory.cshtml" />
     <Content Include="Views\Menu\Menuarrivals.cshtml" />
+    <Content Include="Views\Products\Detail.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Menu\MenuLeft.cshtml" />
+    <Content Include="Views\Products\ProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

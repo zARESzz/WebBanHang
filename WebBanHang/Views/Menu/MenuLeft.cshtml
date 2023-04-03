@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WebBanHang.Models.EF.ProductCategory>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/categories_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/styles/categories_responsive.css">
+</head>
+@if (Model != null && Model.Any())
+{
+    <div class="sidebar_section">
+        <div class="sidebar_title">
+            <h5>Chủ đề</h5>
+        </div>
+        <ul class="sidebar_categories">
+            @foreach (var item in Model)
+            {
+                <li><a href="/danh-muc-san-pham/@item.Alias-@(item.Id).html">@item.Title</a></li>
+            }
+        </ul>
+    </div>
+}
+
+
+@section scripts{
+    <script src="~/Content/assets/js/categories_custom.js"></script>
+}
+
