@@ -14,6 +14,7 @@ namespace WebBanHang
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
@@ -54,15 +55,14 @@ namespace WebBanHang
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseFacebookAuthentication(
+               appId: "5841245089337261",
+               appSecret: "72da7f5e1523e875d81e3527105a68ba");
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "613486006403-kakgrn93vu97puv0qah6ochs0196lhkq.apps.googleusercontent.com",
+                ClientSecret = "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"
+            });
         }
     }
 }

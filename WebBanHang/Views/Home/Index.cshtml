@@ -1,131 +1,37 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using WebBanHang.Models
+@using WebBanHang.Common
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!-- Swiper-->
-
-@*@Html.Action("MenuProductCategory", "Menu")*@
-
-<!-- What We Offer-->
-<!--<section class="section section-md bg-default">
-    <div class="container">
-        <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Menu</span></h3>
-        <div class="row row-md row-30">
-            <div class="col-sm-6 col-lg-4">
-                <div class="oh-desktop">-->
-<!-- Services Terri-->
-<!--<article class="services-terri wow slideInUp">
-            <div class="services-terri-figure">
-                <img src="~/Content/Images/banh.jpeg" alt="" width="370" height="278" />
-            </div>
-            <div class="services-terri-caption">
-                <span class="services-terri-icon linearicons-ice-cream2"></span>
-                <h5 class="services-terri-title"><a href="#">Bánh kem</a></h5>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-sm-6 col-lg-4">
-    <div class="oh-desktop">-->
-<!-- Services Terri-->
-<!--<article class="services-terri wow slideInDown">
-            <div class="services-terri-figure">
-                <img src="~/Content/Images/commm.jpg" alt="" width="370" height="278" />
-            </div>
-            <div class="services-terri-caption">
-                <span class="services-terri-icon linearicons-platter"></span>
-                <h5 class="services-terri-title"><a href="#">Cơm</a></h5>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-sm-6 col-lg-4">
-    <div class="oh-desktop">-->
-<!-- Services Terri-->
-<!--<article class="services-terri wow slideInUp">
-            <div class="services-terri-figure">
-                <img src="~/Content/Images/lauaua.jpeg" alt="" width="370" height="278" />
-            </div>
-            <div class="services-terri-caption">
-                <span class="services-terri-icon linearicons-dinner2"></span>
-                <h5 class="services-terri-title"><a href="#">Lẩu</a></h5>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-sm-6 col-lg-4">
-    <div class="oh-desktop">-->
-<!-- Services Terri-->
-<!--<article class="services-terri wow slideInDown">
-            <div class="services-terri-figure">
-                <img src="~/Content/Images/passs.jpg" alt="" width="370" height="278" />
-            </div>
-            <div class="services-terri-caption">
-                <span class="services-terri-icon linearicons-pizza"></span>
-                <h5 class="services-terri-title"><a href="#">Đồ ăn nhanh</a></h5>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-sm-6 col-lg-4">
-    <div class="oh-desktop">-->
-<!-- Services Terri-->
-<!--<article class="services-terri wow slideInUp">
-            <div class="services-terri-figure">
-                <img src="~/Content/Images/tra2.jpeg" alt="" width="370" height="278" />
-            </div>
-            <div class="services-terri-caption">
-                <span class="services-terri-icon linearicons-coffee-cup"></span>
-                <h5 class="services-terri-title"><a href="#">Nước uống</a></h5>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-sm-6 col-lg-4">
-    <div class="oh-desktop">-->
-<!-- Services Terri-->
-<!--<article class="services-terri wow slideInDown">
-                        <div class="services-terri-figure">
-                            <img src="~/Content/Images/ganuonggg.jpeg" alt="" width="370" height="278" />
-                        </div>
-                        <div class="services-terri-caption">
-                            <span class="services-terri-icon linearicons-steak"></span>
-                            <h5 class="services-terri-title"><a href="#">Món nướng</a></h5>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>-->
-@Html.Action("Partial_ItemsByCateId", "Products")
 <section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="true" data-autoplay="5000" data-simulate-touch="false" data-slide-effect="fade">
     <div class="swiper-wrapper text-sm-left">
-        <div class="swiper-slide context-dark" data-slide-bg="/Content/Images/hamberger2.jpg">
-            <div class="swiper-slide-caption section-md">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-9 col-md-8 col-lg-7 col-xl-7 offset-lg-1 offset-xxl-0">
-                            <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="0">Hamburger Hoàn Hảo</span></h1>
-                            <p class="big swiper-text" data-caption-animate="fadeInLeft" data-caption-delay="300">Trải nghiệm hương vị của một chiếc bánh Hamberger hoàn hảo tại Hamberger, một trong những nhà hàng tốt nhất!</p><a class="button button-lg button-primary button-winona button-shadow-2" href="#" data-caption-animate="fadeInUp" data-caption-delay="300">Xem thực đơn của chúng tôi</a>
+
+        @{
+            ApplicationDbContext db = new ApplicationDbContext();
+            foreach (var item in db.Products)
+            {
+                if (item.IsHome)
+                {
+                    <div class="swiper-slide context-dark" data-slide-bg="@item.Image">
+                        <div class="swiper-slide-caption section-md">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-8 col-lg-7 offset-lg-1 offset-xxl-0">
+                                        <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="0">QUALITY INGREDIENTS</span></h1>
+                                        <p class="big swiper-text" data-caption-animate="fadeInRight" data-caption-delay="300">Chúng tôi chỉ sử dụng những nguyên liệu tốt nhất để làm những món ăn có một không hai cho khách hàng của mình..</p>
+                                        <div class="button-wrap oh"><a class="button button-lg button-primary button-winona button-shadow-2" href="#" data-caption-animate="slideInUp" data-caption-delay="0">Xem thực đơn của chúng tôi</a></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide context-dark" data-slide-bg="/Content/Images/cherries-g778b7d36a_1920.jpg">
-            <div class="swiper-slide-caption section-md">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-lg-7 offset-lg-1 offset-xxl-0">
-                            <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="0">Nguyên liệu chất lượng</span></h1>
-                            <p class="big swiper-text" data-caption-animate="fadeInRight" data-caption-delay="300">Chúng tôi chỉ sử dụng những nguyên liệu tốt nhất để làm món những món ăn có một không hai cho khách hàng của mình.</p>
-                            <div class="button-wrap oh"><a class="button button-lg button-primary button-winona button-shadow-2" href="#" data-caption-animate="slideInUp" data-caption-delay="0">Xem thực đơn của chúng tôi</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+                }
+            }
+        }
     </div>
     <!-- Swiper Pagination-->
     <div class="swiper-pagination" data-bullet-custom="true"></div>
@@ -143,16 +49,129 @@
         </div>
     </div>
 </section>
+<!-- What We Offer-->
+<section class="section section-md bg-default">
+    <div class="container">
+        <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Our Menu</span></h3>
+        <div class="row row-md row-30">
+
+            @{
+                foreach (var item in db.ProductCategories)
+                {
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="oh-desktop">
+                            <!-- Services Terri-->
+                            <article class="services-terri wow slideInUp">
+                                <div class="services-terri-figure">
+                                    <img src="@item.Icon" alt="" width="370" height="278" />
+                                </div>
+                                <div class="services-terri-caption">
+                                    @*<span class="services-terri-icon linearicons-leaf"></span>*@
+                                    <h5 class="services-terri-title"><a href="#">@item.Title</a></h5>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                }
+            }
+            <!--<div class="col-sm-6 col-lg-4">
+            <div class="oh-desktop">-->
+            <!-- Services Terri-->
+            <!--<article class="services-terri wow slideInUp">
+                        <div class="services-terri-figure">
+                            <img src="~/Content/assets/images/menu-1-370x278.jpg" alt="" width="370" height="278" />
+                        </div>
+                        <div class="services-terri-caption">
+                            <span class="services-terri-icon linearicons-leaf"></span>
+                            <h5 class="services-terri-title"><a href="#">Salads</a></h5>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="oh-desktop">-->
+            <!-- Services Terri-->
+            <!--<article class="services-terri wow slideInDown">
+                        <div class="services-terri-figure">
+                            <img src="~/Content/assets/images/menu-2-370x278.jpg" alt="" width="370" height="278" />
+                        </div>
+                        <div class="services-terri-caption">
+                            <span class="services-terri-icon linearicons-pizza"></span>
+                            <h5 class="services-terri-title"><a href="#">Pizzas</a></h5>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="oh-desktop">-->
+            <!-- Services Terri-->
+            <!--<article class="services-terri wow slideInUp">
+                        <div class="services-terri-figure">
+                            <img src="~/Content/assets/images/menu-3-370x278.jpg" alt="" width="370" height="278" />
+                        </div>
+                        <div class="services-terri-caption">
+                            <span class="services-terri-icon linearicons-hamburger"></span>
+                            <h5 class="services-terri-title"><a href="#">Burgers</a></h5>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="oh-desktop">-->
+            <!-- Services Terri-->
+            <!--<article class="services-terri wow slideInDown">
+                        <div class="services-terri-figure">
+                            <img src="~/Content/assets/images/menu-4-370x278.jpg" alt="" width="370" height="278" />
+                        </div>
+                        <div class="services-terri-caption">
+                            <span class="services-terri-icon linearicons-ice-cream"></span>
+                            <h5 class="services-terri-title"><a href="#">Desserts</a></h5>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="oh-desktop">-->
+            <!-- Services Terri-->
+            <!--<article class="services-terri wow slideInUp">
+                        <div class="services-terri-figure">
+                            <img src="~/Content/assets/images/menu-5-370x278.jpg" alt="" width="370" height="278" />
+                        </div>
+                        <div class="services-terri-caption">
+                            <span class="services-terri-icon linearicons-coffee-cup"></span>
+                            <h5 class="services-terri-title"><a href="#">Drinks</a></h5>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="oh-desktop">-->
+            <!-- Services Terri-->
+            <!--<article class="services-terri wow slideInDown">
+                        <div class="services-terri-figure">
+                            <img src="~/Content/assets/images/menu-6-370x278.jpg" alt="" width="370" height="278" />
+                        </div>
+                        <div class="services-terri-caption">
+                            <span class="services-terri-icon linearicons-steak"></span>
+                            <h5 class="services-terri-title"><a href="#">Seafood</a></h5>
+                        </div>
+                    </article>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</section>
 <!-- Section CTA-->
-<section class="primary-overlay section parallax-container" data-parallax-img="~/Content/Images/comm.jpeg">
+<section class="primary-overlay section parallax-container" data-parallax-img="/Content/assets/user.jpg">
     <div class="parallax-content section-xl context-dark text-md-left">
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-sm-8 col-md-7 col-lg-5">
                     <div class="cta-modern">
-                        <h3 class="cta-modern-title wow fadeInRight">Bầu không khí tốt nhất</h3>
-                        <p class="lead">PizzaHouse là nơi có những chiếc bánh pizza ngon nhất và dịch vụ chất lượng cao.</p>
-                        <p class="cta-modern-text oh-desktop" data-wow-delay=".1s"><span class="cta-modern-decor wow slideInLeft"></span><span class="d-inline-block wow slideInDown">Đọa Thiên, Người sáng lập</span></p><a class="button button-md button-secondary-2 button-winona wow fadeInUp" href="#" data-wow-delay=".2s">View Our Services</a>
+                        <h3 class="cta-modern-title wow fadeInRight">Best atmosphere</h3>
+                        <p class="lead">Hutech là nơi có những chiếc bánh món ăn ngon nhất và dịch vụ chất lượng cao.</p>
+                        <p class="cta-modern-text oh-desktop" data-wow-delay=".1s"><span class="cta-modern-decor wow slideInLeft"></span><span class="d-inline-block wow slideInDown" style="color:white">PHAC, Người sáng lập</span></p><a class="button button-md button-secondary-2 button-winona wow fadeInUp" href="#" data-wow-delay=".2s">Xem dịch vụ của chúng tôi</a>
                     </div>
                 </div>
             </div>
@@ -161,87 +180,318 @@
 </section>
 
 <!-- Our Shop-->
-<!--<section class="section section-lg bg-default">
+<section class="section section-lg bg-default">
     <div class="container">
-        <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Món ăn nổi bật</span></h3>
+        <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Selected Foods</span></h3>
         <div class="row row-lg row-30">
-            <div class="col-sm-6 col-lg-4 col-xl-3">-->
-<!-- Product-->
-<!--<article class="product wow fadeInLeft" data-wow-delay=".15s">
-        <div class="product-figure">
-            <img src="~/Content/Images/lauaua.jpeg" alt="" width="161" height="162" />
+            @{
+                foreach (var item in db.Products)
+                {
+                    if (item.IsHot)
+                    { <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <!-- Product-->
+                            <article class="product wow fadeInLeft" data-wow-delay=".15s">
+                                <div class="product-figure">
+                                    <img src="@item.Image" alt="" width="161" height="162" />
+                                </div>
+                                <div class="product-rating">
+                                    <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+                                </div>
+                                <h6 class="product-title">@item.Title</h6>
+                                <div class="product-price-wrap">
+                                    <div class="product-price">@Common.FormatNumber(item.Price, 0)</div>
+                                </div>
+                                <div class="product-button">
+                                    <div class="button-wrap"><a class="button button-xs button-primary button-winona btnAddToCart" data-id="@item.Id" href="#">Add to cart</a></div>
+                                    <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                </div><span class="product-badge product-badge-new">Hot</span>
+                            </article>
+                        </div>
+                    }
+
+                    if (item.IsSale)
+                    { <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <!-- Product-->
+                            <article class="product wow fadeInLeft" data-wow-delay=".15s">
+                                <div class="product-figure">
+                                    <img src="@item.Image" alt="" width="161" height="162" />
+                                </div>
+                                <div class="product-rating">
+                                    <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+                                </div>
+                                <h6 class="product-title">@item.Title</h6>
+                                <div class="product-price-wrap">
+                                    <div class="product-price"><del>@Common.FormatNumber(item.Price, 0)</del></div>
+                                    <br />
+                                    <div class="product-price">@Common.FormatNumber(item.PriceSale, 0)</div>
+                                </div>
+                                <div class="product-button">
+                                    <div class="button-wrap"><a class="button button-xs button-primary button-winona btnAddToCart" data-id="@item.Id" href="#">Thêm vào giỏ hàng</a></div>
+                                    <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                </div><span class="product-badge product-badge-sale">Sale</span>
+                            </article>
+                        </div>
+                    }
+                }
+            }
+
+
         </div>
-        <div class="product-rating">
-            <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
-        </div>
-        <h6 class="product-title">Lẩu âu</h6>
-        <div class="product-price-wrap">
-            <div class="product-price">200.000</div>
-        </div>
-        <div class="product-button">
-            <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
-            <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
-        </div>
-    </article>
-</div>
-<div class="col-sm-6 col-lg-4 col-xl-3">-->
-<!-- Product-->
-<!--<article class="product wow fadeInLeft" data-wow-delay=".1s">
-        <div class="product-figure">
-            <img src="~/Content/Images/ganuonggg.jpeg" alt="" width="161" height="162" />
-        </div>
-        <div class="product-rating">
-            <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span>
-        </div>
-        <h6 class="product-title">Gân nướng</h6>
-        <div class="product-price-wrap">
-            <div class="product-price">45.000</div>
-        </div>
-        <div class="product-button">
-            <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
-            <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
-        </div><span class="product-badge product-badge-new">Mới</span>
-    </article>
-</div>
-<div class="col-sm-6 col-lg-4 col-xl-3">-->
-<!-- Product-->
-<!--<article class="product wow fadeInLeft" data-wow-delay=".05s">
-        <div class="product-figure">
-            <img src="~/Content/Images/gakfc.jpeg" alt="" width="161" height="162" />
-        </div>
-        <div class="product-rating">
-            <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
-        </div>
-        <h6 class="product-title">Gà rán</h6>
-        <div class="product-price-wrap">
-            <div class="product-price">74.000</div>
-        </div>
-        <div class="product-button">
-            <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
-            <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
-        </div>
-    </article>
-</div>
-<div class="col-sm-6 col-lg-4 col-xl-3">-->
-<!-- Product-->
-<!--<article class="product wow fadeInLeft">
-                    <div class="product-figure">
-                        <img src="~/Content/Images/nuocdua.jpeg" alt="" width="161" height="162" />
+    </div>
+</section>
+
+<!-- Section CTA-->
+<section class="primary-overlay section parallax-container" data-parallax-img="/Content/Images/lauphap.jpg">
+    <div class="parallax-content section-xxl context-dark text-md-left">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-sm-9 col-md-7 col-lg-5">
+                    <div class="cta-modern">
+                        <h3 class="cta-modern-title cta-modern-title-2 oh-desktop"><span class="d-inline-block wow fadeInLeft">-30% trên tất cả các món salad & đồ uống</span></h3>
+                        <p class="cta-modern-text cta-modern-text-2 oh-desktop" data-wow-delay=".1s"><span class="cta-modern-decor cta-modern-decor-2 wow slideInLeft"></span><span class="d-inline-block wow slideInUp">Nếm thử một số món ăn ngon nhất!</span></p><a class="button button-lg button-secondary button-winona wow fadeInRight" href="contacts.html" data-wow-delay=".2s">Liên hệ với chúng tôi</a>
                     </div>
-                    <div class="product-rating">
-                        <span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Offer-->
+<section class="section section-xl bg-default">
+    <div class="container">
+        <h3 class="wow fadeInLeft" style="font-family:Arial">MỌI NGƯỜI NÓI GÌ</h3>
+    </div>
+    <div class="container container-style-1">
+        <div class="owl-carousel owl-style-12" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30" data-xl-margin="45" data-autoplay="true" data-nav="true" data-center="true" data-smart-speed="400">
+            <!-- Quote Tara-->
+            <article class="quote-tara">
+                <div class="quote-tara-caption">
+                    <div class="quote-tara-text">
+                        <p class="q">Hutech là địa điểm bán bánh đồ ăn lâu đời nhất trong thành phố, hoạt động tốt và có nhân viên. Giá cả rất tuyệt và cho phép tôi tiếp tục quay lại.</p>
                     </div>
-                    <h6 class="product-title">Nước dừa</h6>
-                    <div class="product-price-wrap">
-                        <div class="product-price product-price-old">35.000</div>
-                        <div class="product-price">20.000</div>
+                    <div class="quote-tara-figure">
+                        <img src="~/Content/Images/banhngotphap.jpg" alt="" width="115" height="115" />
                     </div>
-                    <div class="product-button">
-                        <div class="button-wrap"><a class="button button-xs button-primary button-winona" href="#">Add to cart</a></div>
-                        <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
-                    </div><span class="product-badge product-badge-sale">Giảm giá</span>
+                </div>
+                <h6 class="quote-tara-author">Nguyễn Văn A</h6>
+                <div class="quote-tara-status">Khách hàng</div>
+            </article>
+            <!-- Quote Tara-->
+            <article class="quote-tara">
+                <div class="quote-tara-caption">
+                    <div class="quote-tara-text">
+                        <p class="q">Tôi vẫn thích cửa hàng của bạn hơn tất cả cửa hàng khác. Chúng có những món ăn tuyệt vời và rất phải chăng.</p>
+                    </div>
+                    <div class="quote-tara-figure">
+                        <img src="~/Content/Images/banhcauvong.jpeg" alt="" width="115" height="115" />
+                    </div>
+                </div>
+                <h6 class="quote-tara-author">Lê Thị B</h6>
+                <div class="quote-tara-status">Khách hàng</div>
+            </article>
+            <!-- Quote Tara-->
+            <article class="quote-tara">
+                <div class="quote-tara-caption">
+                    <div class="quote-tara-text">
+                        <p class="q">Hutech có bánh những món ăn tuyệt vời. Bạn không chỉ được phục vụ với thái độ tuyệt vời, mà còn được thưởng thức những chiếc món ăn thơm ngon với mức giá tốt!</p>
+                    </div>
+                    <div class="quote-tara-figure">
+                        <img src="~/Content/Images/comgagi.jpeg" alt="" width="115" height="115" />
+                    </div>
+                </div>
+                <h6 class="quote-tara-author">Phạm Văn C</h6>
+                <div class="quote-tara-status">Khách hàng</div>
+            </article>
+            <!-- Quote Tara-->
+            <article class="quote-tara">
+                <div class="quote-tara-caption">
+                    <div class="quote-tara-text">
+                        <p class="q">Hutech có những món ăn tuyệt vời. Bạn không chỉ được phục vụ với thái độ tuyệt vời và giao những món thơm ngon, mà bạn còn nhận được một mức giá tuyệt vời.</p>
+                    </div>
+                    <div class="quote-tara-figure">
+                        <img src="~/Content/Images/lau1nguoi.jpeg" alt="" width="115" height="115" />
+                    </div>
+                </div>
+                <h6 class="quote-tara-author">Trần Minh D</h6>
+                <div class="quote-tara-status">Khách hàng</div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section section-last bg-default">
+    <div class="container-fluid container-inset-0 isotope-wrap">
+        <div class="row row-10 gutters-10 isotope" data-isotope-layout="masonry" data-isotope-group="gallery" data-lightgallery="group">
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary-->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft">
+                    <a class="thumbnail-mary-figure" href="#" data-lightgallery="item"><img src="~/Content/Images/banh3.jpeg" alt="" width="310" height="585" /></a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title"><a href="#">Thành phần tốt nhất</a></h6>
+                            <div class="thumbnail-mary-location">Món ăn ngon</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
+                <!-- Thumbnail Mary-->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-big wow slideInRight">
+                    <a class="thumbnail-mary-figure" href="#" data-lightgallery="item"><img src="~/Content/Images/banhmynuong.jpeg" alt="" width="631" height="587" /></a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title"><a href="#">Nội thất tiện nghi</a></h6>
+                            <div class="thumbnail-mary-location">Thiết kế hiện đại</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary-->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInDown">
+                    <a class="thumbnail-mary-figure" href="#" data-lightgallery="item"><img src="~/Content/Images/banhmynuong.jpeg" alt="" width="311" height="289" /></a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title"><a href="#">Bát đĩa chất lượng</a></h6>
+                            <div class="thumbnail-mary-location">Đồ dùng cao cấp</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
+                <!-- Thumbnail Mary-->
+                <article class="thumbnail thumbnail-mary wow slideInUp">
+                    <a class="thumbnail-mary-figure" href="#" data-lightgallery="item"><img src="~/Content/Images/gaaran.jpeg" alt="" width="631" height="289" /></a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title"><a href="#">Đồ uống giải khát</a></h6>
+                            <div class="thumbnail-mary-location">Lựa chọn độc quyền</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary-->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInUp">
+                    <a class="thumbnail-mary-figure" href="#" data-lightgallery="item"><img src="~/Content/Images/hamburger.jpg" alt="" width="311" height="289" /></a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title"><a href="#">Đồ ăn ngon</a></h6>
+                            <div class="thumbnail-mary-location">Hương vị mùa hè</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary-->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInRight">
+                    <a class="thumbnail-mary-figure" href="#" data-lightgallery="item"><img src="~/Content/Images/lauechh.jpeg" alt="" width="311" height="289" /></a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title"><a href="#">Tất cả các loại đồ ăn</a></h6>
+                            <div class="thumbnail-mary-location">Bí quyết đặc biệt</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary-->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft">
+                    <a class="thumbnail-mary-figure" href="#" data-lightgallery="item"><img src="~/Content/Images/cherries-g778b7d36a_1920.jpg" alt="" width="311" height="289" /></a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title"><a href="#">Diverse menu</a></h6>
+                            <div class="thumbnail-mary-location">Chọn món ăn yêu thích của bạn</div>
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
     </div>
-</section>-->
+</section>
+
+<!-- Tell-->
+<section class="section section-sm section-first bg-default">
+    <div class="container">
+        <h3 class="heading-3">Book your Table</h3>
+        <form class="rd-form rd-mailform form-style-1" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+            <div class="row row-20 gutters-20">
+                <div class="col-md-6 col-lg-4 oh-desktop">
+                    <div class="form-wrap wow slideInDown">
+                        <input class="form-input" id="contact-your-name-6" type="text" name="name">
+                        <label class="form-label" for="contact-your-name-6">Your Name*</label>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 oh-desktop">
+                    <div class="form-wrap wow slideInUp">
+                        <input class="form-input" id="contact-email-6" type="email" name="email">
+                        <label class="form-label" for="contact-email-6">Your E-mail*</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 oh-desktop">
+                    <div class="form-wrap wow slideInDown">
+                        <!--Select 2-->
+                        <select class="form-input" data-minimum-results-for-search="Infinity">
+                            <option value="1">Select a Service</option>
+                            <option value="2">Dine-In</option>
+                            <option value="3">Carry-Out</option>
+                            <option value="4">Event Catering</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-wrap wow fadeIn">
+                        <label class="form-label" for="contact-message-6">Message</label>
+                        <textarea class="form-input textarea-lg" id="contact-message-6" name="message"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="group-custom-1 group-middle oh-desktop">
+                <button class="button button-lg button-primary button-winona wow fadeInRight" type="submit">Send message</button>
+                <!-- Quote Classic-->
+                <article class="quote-classic quote-classic-3 wow slideInDown">
+                    <div class="quote-classic-text">
+                        <p class="q">Please reserve your table at least 1 day in advance.</p>
+                    </div>
+                </article>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Section Services  Last section-->
+<section class="section section-sm bg-default">
+    <div class="container">
+        <div class="owl-carousel owl-style-11 dots-style-2" data-items="1" data-sm-items="1" data-lg-items="2" data-xl-items="4" data-margin="30" data-dots="true" data-mouse-drag="true" data-rtl="true">
+            <article class="box-icon-megan wow fadeInUp">
+                <div class="box-icon-megan-header">
+                    <div class="box-icon-megan-icon linearicons-bag"></div>
+                </div>
+                <h5 class="box-icon-megan-title"><a href="#">Giao hàng miễn phí</a></h5>
+                <p class="box-icon-megan-text">Nếu bạn đặt nhiều hơn 500 nghìn , chúng tôi sẽ sẵn sàng giao miễn phí cho bạn.</p>
+            </article>
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".05s">
+                <div class="box-icon-megan-header">
+                    <div class="box-icon-megan-icon linearicons-map2"></div>
+                </div>
+                <h5 class="box-icon-megan-title"><a href="#">Vị trí thuận tiện</a></h5>
+                <p class="box-icon-megan-text">Cửa hàng của chúng tôi nằm ở trung tâm thành phố và rất dễ đến ngay cả vào cuối tuần.</p>
+            </article>
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".1s">
+                <div class="box-icon-megan-header">
+                    <div class="box-icon-megan-icon linearicons-radar"></div>
+                </div>
+                <h5 class="box-icon-megan-title"><a href="#">Wifi miễn phí</a></h5>
+                <p class="box-icon-megan-text">Chúng tôi cung cấp Wi-Fi miễn phí cho tất cả khách hàng và khách ghé thăm cửa hàng chúng tôi.</p>
+            </article>
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".15s">
+                <div class="box-icon-megan-header">
+                    <div class="box-icon-megan-icon linearicons-thumbs-up"></div>
+                </div>
+                <h5 class="box-icon-megan-title"><a href="#">Dịch vụ tốt nhất</a></h5>
+                <p class="box-icon-megan-text">Khách hàng là ưu tiên số 1 của chúng tôi khi chúng tôi cung cấp dịch vụ khách hàng hàng đầu.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
