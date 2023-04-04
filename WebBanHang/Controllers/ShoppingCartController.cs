@@ -136,6 +136,9 @@ namespace WebBanHang.Controllers
                 {
                     foreach (var sp in cart.Items)
                     {
+                        var findPr = db.Products.FirstOrDefault(p => p.Id == sp.ProductId);
+                        findPr.Quantity = findPr.Quantity - sp.Quantity;
+                        db.SaveChanges();
                         strSanPham += "<tr>";
                         strSanPham += "<td>" + sp.ProductName + "</td>";
                         strSanPham += "<td>" + sp.Quantity + "</td>";
@@ -187,6 +190,12 @@ namespace WebBanHang.Controllers
             var code = new { Success = false, msg = "", code = -1, Count = 0 };
             var db = new ApplicationDbContext();
             var checkProduct = db.Products.FirstOrDefault(x => x.Id == id);
+            var findPr = db.Products.FirstOrDefault(p => p.Id == id);
+            if (findPr.Quantity < quantity)
+            {
+                return Json(new { Success = false });
+
+            }
             if (checkProduct != null)
             {
                 ShoppingCart cart = (ShoppingCart)Session["Cart"];
@@ -223,6 +232,12 @@ namespace WebBanHang.Controllers
         public ActionResult Update(int id, int quantity)
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
+            var findPr = db.Products.FirstOrDefault(p => p.Id == id);
+            if (findPr.Quantity < quantity)
+            {
+                return Json(new { Success = false });
+
+            }
             if (cart != null)
             {
                 cart.UpdateQuantity(id, quantity);
@@ -325,6 +340,9 @@ namespace WebBanHang.Controllers
                         var TongTien = decimal.Zero;
                         foreach (var sp in cart.Items)
                         {
+                            var findPr = db.Products.FirstOrDefault(p => p.Id == sp.ProductId);
+                            findPr.Quantity = findPr.Quantity - sp.Quantity;
+                            db.SaveChanges();
                             strSanPham += "<tr>";
                             strSanPham += "<td>" + sp.ProductName + "</td>";
                             strSanPham += "<td>" + sp.Quantity + "</td>";
