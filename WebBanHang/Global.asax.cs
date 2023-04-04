@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebBanHang.App_Start;
 using WebBanHang.Models;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace WebBanHang
 {
@@ -14,6 +17,7 @@ namespace WebBanHang
     {
         protected void Application_Start()
         {
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             Database.SetInitializer<ApplicationDbContext>(null);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
