@@ -39,12 +39,18 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             return View();
         }
+        public ActionResult Edit(int id)
+        {
+            var item = db.ProductCategories.Find(id);
+            return View(item);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ProductCategory model)
         {
             if (ModelState.IsValid)
             {
+                model.CreateDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
                 db.ProductCategories.Attach(model);

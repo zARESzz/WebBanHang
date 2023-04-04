@@ -68,7 +68,7 @@
                     <tr>
                         <th><input type="checkbox" id="SelectAll" /></th>
                         <th>STT</th>
-                        @*<th>Hình ảnh</th>*@
+                        <th>Icon</th>
                         <th>Tiêu đề</th>
                         <th>Ngày tạo</th>
                         @*<th>Hiển thị</th>*@
@@ -85,12 +85,10 @@
                             <tr id=" trow_@item.Id">
                                 <td><input type="checkbox" class="cbkItem" value="@item.Id" /></td>
                                 <td>@i</td>
-                               
+                                <td><img src="@item.Icon" width="50" /></td>
                                 <td>@item.Title</td>
                                 <td>@item.CreateDate.ToString("dd/MM/yyyy")</td>
-                                @*<td class="text-center">
-                                    <a href="#" data-id="@item.Id" class="btnActive"> @Html.Raw(strCheck)</a>
-                                </td>*@
+                        
                                 <td>
                                     <a href="/admin/productcategory/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
                                     <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
