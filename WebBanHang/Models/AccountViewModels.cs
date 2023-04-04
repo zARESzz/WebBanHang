@@ -8,6 +8,18 @@ namespace WebBanHang.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Xin vui lòng nhập tên của bạn")]
+        [Display(Name = "FullName")]
+        public string FullName { get; set; }
+        [Required(ErrorMessage = "Xin vui lòng nhập địa chỉ của bạn")]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required(ErrorMessage = "Xin vui lòng nhập số điện thoại của bạn")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^(0|84)([0-9]{9})$", ErrorMessage = "Xin vui lòng nhập đúng định dạng số điện thoại")]
+        public string Phone { get; set; }
+
     }
 
     public class ExternalLoginListViewModel

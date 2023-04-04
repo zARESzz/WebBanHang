@@ -19,6 +19,10 @@ namespace WebBanHang.Models.EF
         public string Name { get; set; }
         [StringLength(150, ErrorMessage = "Không được vượt quá 150 kí tự")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Xin vui lòng nhập số điện thoại của bạn")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^(0|84)([0-9]{9})$", ErrorMessage = "Xin vui lòng nhập đúng định dạng số điện thoại")]
         public string Website { get; set; }
         [StringLength(4000)]
         public string Message { get; set; }

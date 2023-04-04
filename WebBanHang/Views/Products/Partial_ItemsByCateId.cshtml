@@ -40,8 +40,16 @@
 
                                     @using (Html.BeginForm("Search", "Products", FormMethod.Get))
                                     {
-                                        <input type="text" name="searchString" placeholder="Tìm kiếm" />
-                                        <input type="submit" value="Search" />
+                                        @*<input type="text" name="searchString" placeholder="Tìm kiếm" />
+                                            <input type="submit" value="Search" />*@
+
+
+
+                                        <div class="inputGroup">
+                                            <input type="text" name="searchString" required="" autocomplete="on">
+                                            <label for="name">Tìm kiếm</label>
+                                        </div>
+
                                     }
 
                                     <!-- Product Grid -->
@@ -287,7 +295,7 @@
 
 
 <style>
-    
+
     .checkout_items {
         display: -webkit-box;
         display: -moz-box;
@@ -307,4 +315,61 @@
         font-size: 12px;
         color: #FFFFFF;
     }
+
+    .inputGroup {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 1em 0 1em 0;
+        max-width: 1000px;
+        position: relative;
+    }
+
+        .inputGroup input {
+            font-size: 100%;
+            padding: 0.8em;
+            outline: none;
+            border: 5px solid rgb(121 158 231);
+            border-radius: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .inputGroup label {
+            font-size: 100%;
+            position: absolute;
+            left: 0;
+            padding: 0.8em;
+            margin-left: 0.5em;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            color: rgb(100, 100, 100);
+            text-align: center;
+        }
+
+        .inputGroup :is(input:focus, input:valid) ~ label {
+            transform: translateY(-50%) scale(.9);
+            margin: 0em;
+            margin-left: 1.3em;
+            padding: 0.4em;
+            background-color: #e8e8e8;
+        }
+
+        .inputGroup :is(input:focus, input:valid) {
+            border-color: rgb(150, 150, 200);
+        }
 </style>
+@section scripts{
+    <script>
+    $(function() {
+    $('form').each(function() {
+    $(this).find('input').keypress(function(e) {
+    // Enter pressed?
+    if(e.which == 10 || e.which == 13) {
+    this.form.submit();
+    }
+    });
+
+    $(this).find('input[type=submit]').hide();
+    });
+    });
+    </script>
+}

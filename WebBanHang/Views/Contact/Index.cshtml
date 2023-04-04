@@ -1,4 +1,4 @@
-﻿
+﻿@model WebBanHang.Models.EF.Contact
 @{
     ViewBag.Title = "Index";
 }
@@ -72,47 +72,49 @@
                 <div class="row row-60 justify-content-center">
                     <div class="col-lg-8">
                         <h4 class="text-spacing-25 text-transform-none">Get in Touch</h4>
-                        <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                            <div class="row row-20 gutters-20">
-                                <div class="col-md-6">
-                                    <div class="form-wrap">
-                                        <input class="form-input" id="contact-your-name-5" type="text" name="name" @*data-constraints="@Required"*@>
-                                        <label class="form-label" for="contact-your-name-5">Your Name*</label>
+                        @*<form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="Contact/Add">*@
+                            <form action="/Contact/Index" method="post" role="form" class="signup-form">
+
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+                                <div class="row row-20 gutters-20">
+                                    <div class="col-md-6">
+                                        <div class="form-wrap">
+                                            <input class="form-input" id="Name" type="text" name="Name" @*data-constraints="@Required"*@>
+                                            <label class="form-label" for="contact-your-name-5">Your Name*</label>
+                                        </div>
+                                        @Html.ValidationMessageFor(row => row.Name)
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-wrap">
+                                            <input class="form-input" id="Email" type="email" name="Email" @*data-constraints="@Email @Required"*@>
+                                            <label class="form-label" for="contact-email-5">Your E-mail*</label>
+                                        </div>
+                                        @Html.ValidationMessageFor(row => row.Email)
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-wrap">
+                                            <input class="form-input" id="Website" type="text" name="Website" @*data-constraints="@Numeric"*@>
+                                            <label class="form-label" for="contact-phone-5">Your Phone*</label>
+                                        </div>
+                                        @Html.ValidationMessageFor(row => row.Website)
+
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-wrap">
+                                            <label class="form-label" for="contact-message-5">Message</label>
+                                            <textarea class="form-input textarea-lg" id="Message" name="Message" @*data-constraints="@Required"*@></textarea>
+                                        </div>
+                                        @Html.ValidationMessageFor(row => row.Message)
+
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-wrap">
-                                        <input class="form-input" id="contact-email-5" type="email" name="email" @*data-constraints="@Email @Required"*@>
-                                        <label class="form-label" for="contact-email-5">Your E-mail*</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-wrap">
-                                        <!--Select 2-->
-                                        <select class="form-input" data-minimum-results-for-search="Infinity" @*data-constraints="@Required"*@>
-                                            <option value="1">Select a Service</option>
-                                            <option value="2">Dine-In</option>
-                                            <option value="3">Carry-Out</option>
-                                            <option value="4">Event Catering</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-wrap">
-                                        <input class="form-input" id="contact-phone-5" type="text" name="phone" @*data-constraints="@Numeric"*@>
-                                        <label class="form-label" for="contact-phone-5">Your Phone*</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-wrap">
-                                        <label class="form-label" for="contact-message-5">Message</label>
-                                        <textarea class="form-input textarea-lg" id="contact-message-5" name="message" @*data-constraints="@Required"*@></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="button button-secondary button-winona" type="submit">Contact us</button>
-                        </form>
-                    </div>
+                                <button class="button button-secondary button-winona" type="submit">Contact us</button>
+                            </form>
+</div>
                     <div class="col-lg-4">
                         <div class="aside-contacts">
                             <div class="row row-30">
@@ -154,13 +156,13 @@
         </section>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4205948965823!2d106.78291401465324!3d10.855580060696438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276e7ea103df%3A0xb6cf10bb7d719327!2sThu%20Duc%20Campus%20Hutech%20khu%20E!5e0!3m2!1svi!2s!4v1680541105633!5m2!1svi!2s" width="2000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-   
-      
+
+
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
     <!-- Javascript-->
-  
+
 
     <script src="~/Content/assets/js/core.min.js"></script>
     <script src="~/Content/assets/js/script.js"></script>
