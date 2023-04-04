@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WebBanHang.Models;
 
 namespace WebBanHang.Controllers
@@ -59,9 +60,7 @@ namespace WebBanHang.Controllers
                   m.Title.Contains(searchString)
                   || m.Alias.Contains(searchString)
                  select m);
-            if(results.Count() > 0)
                 return View("Partial_ItemsByCateId", results);
-            return HttpNotFound("Thông tin tìm kiếm chưa có.Xin cảm ơn");
         }
     }
 }

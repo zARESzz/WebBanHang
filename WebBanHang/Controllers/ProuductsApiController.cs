@@ -31,9 +31,9 @@ namespace WebBanHang.Controllers
             return db.ProductCategories.ToList();
         }
         [Route("API/ProuductsApi/InsertProducts")]
-        public void InsertBook(Product book)
+        public void InsertBook(Product product)
         {
-            db.Products.Add(book);
+            db.Products.Add(product);
             db.SaveChanges();
         }
         [HttpGet]
@@ -72,7 +72,7 @@ namespace WebBanHang.Controllers
         [HttpPut]
         [Route("API/ProuductsApi/PutProduct")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProduct(int id, Product book)
+        public IHttpActionResult PutProduct(int id, Product product)
         {
             try
             {
@@ -81,12 +81,12 @@ namespace WebBanHang.Controllers
                     return BadRequest(ModelState);
                 }
 
-                if (id != book.Id)
+                if (id != product.Id)
                 {
                     return BadRequest();
                 }
 
-                db.Entry(book).State = EntityState.Modified;
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return StatusCode(HttpStatusCode.NoContent);
             }
