@@ -32,6 +32,12 @@ namespace WebBanHang
                namespaces: new[] { "WebBanHang.Controllers" }
            );
             routes.MapRoute(
+             name: "DetailNew",
+             url: "{alias}-n{id}",
+              defaults: new { controller = "News", action = "Detail", id = UrlParameter.Optional },
+                 namespaces: new[] { "WebBanHang.Controllers" }
+          );
+            routes.MapRoute(
                name: "Products",
                url: "san-pham",
                defaults: new { controller = "Products", action = "Index", id = UrlParameter.Optional },
@@ -43,6 +49,7 @@ namespace WebBanHang
                defaults: new { controller = "Products", action = "Detail", id = UrlParameter.Optional },
                namespaces: new[] { "WebBanHang.Controllers" }
            );
+          
         }
     }
 }
