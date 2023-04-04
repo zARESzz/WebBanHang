@@ -80,16 +80,14 @@
                                 <div class="row row-20 gutters-20">
                                     <div class="col-md-6">
                                         <div class="form-wrap">
-                                            <input class="form-input" id="Name" type="text" name="Name" @*data-constraints="@Required"*@>
-                                            <label class="form-label" for="contact-your-name-5">Your Name*</label>
+                                            <input class="form-input" id="Name" type="text" name="Name" placeholder="Your Name*" @*data-constraints="@Required"*@>
                                         </div>
                                         @Html.ValidationMessageFor(row => row.Name)
 
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-wrap">
-                                            <input class="form-input" id="Email" type="email" name="Email" @*data-constraints="@Email @Required"*@>
-                                            <label class="form-label" for="contact-email-5">Your E-mail*</label>
+                                            <input class="form-input" id="Email" type="email" name="Email" placeholder="Your E-mail*"@*data-constraints="@Email @Required"*@>
                                         </div>
                                         @Html.ValidationMessageFor(row => row.Email)
 
@@ -97,16 +95,14 @@
 
                                     <div class="col-md-6">
                                         <div class="form-wrap">
-                                            <input class="form-input" id="Website" type="text" name="Website" @*data-constraints="@Numeric"*@>
-                                            <label class="form-label" for="contact-phone-5">Your Phone*</label>
+                                            <input class="form-input" id="Website" type="text" name="Website" placeholder="Your Phone*" @*data-constraints="@Numeric"*@>
                                         </div>
                                         @Html.ValidationMessageFor(row => row.Website)
 
                                     </div>
                                     <div class="col-12">
                                         <div class="form-wrap">
-                                            <label class="form-label" for="contact-message-5">Message</label>
-                                            <textarea class="form-input textarea-lg" id="Message" name="Message" @*data-constraints="@Required"*@></textarea>
+                                            <textarea class="form-input textarea-lg" id="Message" name="Message" placeholder="Message*" @*data-constraints="@Required"*@></textarea>
                                         </div>
                                         @Html.ValidationMessageFor(row => row.Message)
 
