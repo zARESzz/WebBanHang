@@ -202,8 +202,8 @@
                                     <div class="product-price">@Common.FormatNumber(item.Price, 0)</div>
                                 </div>
                                 <div class="product-button">
-                                    <div class="button-wrap"><a class="button button-xs button-primary button-winona btnAddToCart" data-id="@item.Id" href="#">Add to cart</a></div>
-                                    <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                    <div class="button-wrap"><a class="button button-xs button-primary button-winona btnAddToCart" data-id="@item.Id" href="#">Thêm vào giỏ hàng</a></div>
+                                    <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="/Products/Detail/@item.Id">Chi Tiết</a></div>
                                 </div><span class="product-badge product-badge-new">Hot</span>
                             </article>
                         </div>
@@ -227,7 +227,7 @@
                                 </div>
                                 <div class="product-button">
                                     <div class="button-wrap"><a class="button button-xs button-primary button-winona btnAddToCart" data-id="@item.Id" href="#">Thêm vào giỏ hàng</a></div>
-                                    <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="#">View Product</a></div>
+                                    <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="/Products/Detail/@item.Id">Chi Tiết</a></div>
                                 </div><span class="product-badge product-badge-sale">Sale</span>
                             </article>
                         </div>
