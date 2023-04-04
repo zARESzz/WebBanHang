@@ -19,16 +19,11 @@ namespace WebBanHang.Models.EF
         public int Id { get; set; }
         [Required]
         public string Code { get; set; }
-        [Required]
-        public string CustomerName { get; set; }
-        [Required]
-
-        public string Phone { get; set; }
-        [Required]
-        public string Address { get; set; }
+        public string CustomerId { get; set; }
         
         public decimal TotalAmount { get; set; }
         public int Quantity { get; set; }
-        public ICollection<OrderDetail> OrderDetails { get; set; } 
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+        public int TypePayment { get; set; }
     }
 }

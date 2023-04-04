@@ -9,6 +9,8 @@ using WebBanHang.Models.EF;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class PostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
