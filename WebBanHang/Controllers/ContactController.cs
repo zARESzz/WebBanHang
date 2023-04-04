@@ -11,13 +11,17 @@ namespace WebBanHang.Controllers
     public class ContactController : Controller
     {
         // GET: Contact
-        private ApplicationDbContext db = new ApplicationDbContext();
+        ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Add(Contact model)
+        [HttpPost]
+        public ActionResult Index(Contact model)
         {
+            model.IsRead = false;
+            model.CreateDate = DateTime.Now;
+            model.ModifiedDate = DateTime.Now;
             db.Contacts.Add(model);
             db.SaveChanges();
             return View();

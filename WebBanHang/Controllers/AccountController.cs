@@ -422,13 +422,15 @@ namespace WebBanHang.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,PhoneNumber=model.Phone,FullName = model.FullName, Address = model.Address };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
+                        await UserManager.AddToRoleAsync(user.Id, "Member");
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
                     }
