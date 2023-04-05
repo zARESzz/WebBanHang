@@ -498,6 +498,14 @@
     <Compile Include="Migrations\202304040908372_create odrer.designer.cs">
       <DependentUpon>202304040908372_create odrer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304041743500_laybai.cs" />
+    <Compile Include="Migrations\202304041743500_laybai.designer.cs">
+      <DependentUpon>202304041743500_laybai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304041748573_laydata2.cs" />
+    <Compile Include="Migrations\202304041748573_laydata2.designer.cs">
+      <DependentUpon>202304041748573_laydata2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -4570,6 +4578,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304040908372_create odrer.resx">
       <DependentUpon>202304040908372_create odrer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304041743500_laybai.resx">
+      <DependentUpon>202304041743500_laybai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304041748573_laydata2.resx">
+      <DependentUpon>202304041748573_laydata2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
