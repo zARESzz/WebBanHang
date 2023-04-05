@@ -71,7 +71,15 @@
         textarea {
             height: 100px;
         }
+        img{
+            height:150px;
+            width:150px;
+            border-radius:50%;
+            object-fit: cover;
+            background: #dfdfdf; 
+        }
     </style>
+    
 </head>
 <body>
     <h1>User Information</h1>
@@ -84,10 +92,14 @@
             <label for="avatar">Avatar:</label>
             if (!string.IsNullOrEmpty(find.Avatar))
             {
-                <img alt="Avatar" src="~/Content/ImagesAcc/@find.Avatar" style="width: 20%; height: 20% " />
-
+                <img alt="User Image" src="~/Content/ImagesAcc/@find.Avatar" />
             }
-            <input type="file" name="ImageFile" id="ImageFile" class="form-control" value="@find.Avatar" accept=".png, .jpg, .jpeg" />
+            else
+            {
+                <img alt="User Image" src="~/Content/th.jpg" />
+            }
+            <label></label>
+            <input type="file" name="ImageFile" id="ImageFile" value="@find.Avatar" accept=".png, .jpg, .jpeg" />
             <label for="fullname">Full Name:</label>
             <input type="text" id="FullName" name="FullName" value="@find.FullName">
             @Html.ValidationMessageFor(row => row.FullName)
