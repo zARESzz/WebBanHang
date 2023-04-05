@@ -18,9 +18,10 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Index(int id)
         {
             ViewBag.ProductId = id;
-            var items=db.ProductImages.Where(x => x.ProductId == id).ToList();
+            var items = db.ProductImages.Where(x => x.ProductId == id).ToList();
             return View(items);
         }
+
         [HttpPost]
         public ActionResult AddImage(int productId, string url)
         {
@@ -39,7 +40,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             var item = db.ProductImages.Find(id);
             db.ProductImages.Remove(item);
             db.SaveChanges();
-            return Json(new {success=true});
+            return Json(new { success = true });
         }
     }
 }

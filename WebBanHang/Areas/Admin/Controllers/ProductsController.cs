@@ -35,25 +35,25 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
         public ActionResult Add()
         {
-            ViewBag.Productcategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
+            ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(Product model,List<string> Images,List<int> rDefault)
+        public ActionResult Add(Product model, List<string> Images, List<int> rDefault)
         {
             if (ModelState.IsValid)
             {
-                if (Images!=null&&Images.Count > 0)
+                if (Images != null && Images.Count > 0)
                 {
-                    for(int i = 0; i < Images.Count; i++)
+                    for (int i = 0; i < Images.Count; i++)
                     {
                         if (i + 1 == rDefault[0])
                         {
                             model.Image = Images[i];
                             model.ProductImage.Add(new ProductImage
                             {
-                                
                                 ProductId = model.Id,
                                 Image = Images[i],
                                 IsDefault = true
@@ -70,18 +70,19 @@ namespace WebBanHang.Areas.Admin.Controllers
                         }
                     }
                 }
-                model.CreateDate=DateTime.Now;
+                model.CreateDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
                 if (string.IsNullOrEmpty(model.SeoTitle))
                 {
-                    model.SeoTitle=model.Title;
+                    model.SeoTitle = model.Title;
                 }
-                model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
+                if (string.IsNullOrEmpty(model.Alias))
+                    model.Alias = WebBanHang.Models.Common.Filter.FilterChar(model.Title);
                 db.Products.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Productcategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
+            ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
             return View(model);
         }
         public ActionResult Edit(int id)
